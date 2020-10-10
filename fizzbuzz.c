@@ -1,9 +1,11 @@
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
+
+// please input first value, end value, fizz-value, buzz-value (int only)
 
 int main(int argc, char **argv){
     if (argc < 5){
-        write(1, "Error\n", 6);
+        printf("Error\n");
         return 0;}
     int start = atoi(argv[1]);
     int end = atoi(argv[2]);
@@ -13,16 +15,13 @@ int main(int argc, char **argv){
 
     while(start <= end){
         if (start%fizz==0 && start%buzz==0)
-            write(1, "fizzbuzz\n", 9);
+            printf("fizzbuzz\n");
         else if (start%fizz==0)
-            write(1, "fizz\n", 5);
+            printf("fizz\n");
         else if (start%buzz==0)
-            write(1, "buzz\n", 5);
-        else{
-            i = itoa(start);
-            write(1, &i, 5);
-            write(1, "\n", 1);
-        }
+            printf("buzz\n");
+        else
+            printf("%d\n", start);
         start++;
     }
     return 0;
